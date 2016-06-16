@@ -1,0 +1,16 @@
+MANIFEST
+.vagrant/
+.venv/
+_trial_temp
+build
+dist
+graphite.db
+dropin.cache
+*.egg-info
+docs/_build
+*.log
+*.pyc
+.tox
+*.swp
+.idea
+*.iml
