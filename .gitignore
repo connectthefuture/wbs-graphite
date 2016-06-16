@@ -1,0 +1,8 @@
+/work
+
+/third-party/*/build/
+/third-party/*/dist/
+/third-party/*/*.egg-info/
+
+*.pyc
+

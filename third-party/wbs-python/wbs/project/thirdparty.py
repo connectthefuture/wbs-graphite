@@ -692,17 +692,12 @@ class ThirdPartySetup (object):
 
 			# ------ work out build
 
-			if "build" in library_data:
-
-				build_data = (
-					library_data ["build"])
-
-			elif (
+			if (
 
 				library_data.get ("auto") == "python"
 
 				and os.path.isfile (
-					"%s/setup.py" % library_path)
+						"%s/setup.py" % library_path)
 
 			):
 
@@ -716,15 +711,28 @@ class ThirdPartySetup (object):
 					os.makedirs (
 						python_site_packages)
 
-				build_data = {
-					"command": " ".join ([
+				build_data = dict (
+					library_data.get ("build", {}))
+
+				build_data.setdefault (
+					"command",
+					" ".join ([
 						"python setup.py install",
-						"--prefix %s/work" % self.project_path,
-					]),
-					"environment": {
-						"PYTHONPATH": python_site_packages,
-					},
+						"--prefix {WORK}",
+					]))
+
+				build_environment_default = {
+					"PYTHONPATH": python_site_packages,
 				}
+
+				build_data ["environment"] = dict (
+					build_environment_default,
+					** build_data.get ("environment", {}))
+
+			elif "build" in library_data:
+
+				build_data = (
+					library_data ["build"])
 
 			else:
 
@@ -739,6 +747,11 @@ class ThirdPartySetup (object):
 			build_data.setdefault (
 				"environment",
 				{})
+
+			build_data ["command"] = (
+				build_data ["command"].replace (
+					"{WORK}",
+					"%s/work" % self.project_path))
 
 			# ---------- perform build
 

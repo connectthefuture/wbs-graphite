@@ -1,0 +1,78 @@
+---
+
+# ---------- wbs
+
+wbs-python:
+
+  url: "git@gitlab.wellbehavedsoftware.com:well-behaved-software/wbs-python.git"
+  branch: "master"
+  python: "third-party/wbs-python"
+  push: "simple"
+
+# ---------- git
+
+gitdb:
+
+  url: "git@github.com:gitpython-developers/gitdb.git"
+  branch: "master"
+  auto: "python"
+
+gitpython:
+
+  url: "git@github.com:gitpython-developers/GitPython.git"
+  branch: "master"
+  auto: "python"
+
+smmap:
+
+  url: "git@github.com:gitpython-developers/smmap.git"
+  branch: "master"
+  auto: "python"
+
+# ---------- graphite
+
+carbon:
+
+  url: "git@github.com:graphite-project/carbon.git"
+  branch: "master"
+  auto: "python"
+  build:
+    environment:
+      GRAPHITE_NO_PREFIX: "yes"
+
+graphite-web:
+
+  url: "git@github.com:graphite-project/graphite-web.git"
+  branch: "master"
+  auto: "python"
+  build:
+    environment:
+      GRAPHITE_NO_PREFIX: "yes"
+
+whisper:
+
+  url: "git@github.com:graphite-project/whisper.git"
+  branch: "master"
+  auto: "python"
+
+# ---------- dependencices
+
+django:
+
+  url: "git@github.com:django/django.git"
+  branch: "master"
+  auto: "python"
+
+django-tagging:
+
+  url: "git@github.com:Fantomas42/django-tagging.git"
+  branch: "master"
+  auto: "python"
+
+twisted:
+
+  url: "git@github.com:twisted/twisted.git"
+  branch: "trunk"
+  auto: "python"
+
+# ex: et ts=2 filetype=yaml
