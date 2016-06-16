@@ -748,6 +748,12 @@ class ThirdPartySetup (object):
 				"environment",
 				{})
 
+			if isinstance (build_data ["command"], list):
+
+				build_data ["command"] = (
+					" ".join (
+						build_data ["command"]))
+
 			build_data ["command"] = (
 				build_data ["command"].replace (
 					"{WORK}",

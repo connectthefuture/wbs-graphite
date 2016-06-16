@@ -37,8 +37,12 @@ carbon:
   branch: "master"
   auto: "python"
   build:
-    environment:
-      GRAPHITE_NO_PREFIX: "yes"
+    command:
+
+      - "python setup.py install"
+      - "--prefix {WORK}"
+      - "--install-lib {WORK}/lib/python2.7/site-packages"
+      - "--install-data {WORK}"
 
 graphite-web:
 
@@ -46,8 +50,12 @@ graphite-web:
   branch: "master"
   auto: "python"
   build:
-    environment:
-      GRAPHITE_NO_PREFIX: "yes"
+    command:
+
+      - "python setup.py install"
+      - "--prefix {WORK}"
+      - "--install-lib {WORK}/lib/python2.7/site-packages"
+      - "--install-data {WORK}"
 
 whisper:
 
